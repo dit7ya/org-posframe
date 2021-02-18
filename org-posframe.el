@@ -36,12 +36,21 @@
             ;; Get the actual file name.
             (let ((flname (substring uri-string 5)))
 
-              (message (format "%s" flname))
+              ;; (message (format "%s" flname))
+
+              (get-buffer-create "*org-posframe-buffer*")
+              (with-current-buffer "*org-posframe-buffer*"
+                (erase-buffer)
+                (insert-file-contents flname)
+                (org-mode)
+                ;; (find-file-noselect flname)
+                )
 
               ;; Popup a posframe with the file conent.
 
               (when (posframe-workable-p)
-                (posframe-show (find-file-noselect flname)
+                ;; (posframe-show (find-file-noselect flname)
+                (posframe-show "*org-posframe-buffer*"
                                :position (point) ;; recheck this
                                :width 60
                                :height 20
