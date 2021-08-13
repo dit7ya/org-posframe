@@ -1,1 +1,6 @@
 #+TITLE: Org-posframe
+
+Org-posframe is a tiny (and alpha) Emacs package which augments org-mode by showing quick previews of linked org files under the point.
+
+* Tasks
+- [ ] make it work with id links as well
